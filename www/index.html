@@ -171,6 +171,7 @@ strong{
             // alert("OnDeviceReady fired.");
             document.addEventListener("pause", onPause, false);
             document.addEventListener("resume", onResume, false);
+            document.addEventListener("offline", onOffline, false);
         };
 
         function init() {
@@ -188,6 +189,11 @@ strong{
             myfunction(1);            
             $('#load').removeClass('ui-disabled');
             count = 1; //reset counter
+        }
+
+        function onOffline() {
+            // Handle the offline event
+            alert('No connection');
         }
 
 
@@ -209,6 +215,12 @@ $( document ).delegate("#one", "pageinit", function() {
 
     $.mobile.defaultPageTransition = 'slide';
     //default transition
+
+     //open panel with swipe
+    $("#one").on("swiperight",function(){
+            $("#left-panel").panel( "open");
+    });
+   
 });
 
 
@@ -307,7 +319,38 @@ function divFunction(id){
 
 <!-- Start of first page: #one -->
 <div data-role="page" id="one" data-theme="a">
+
+
+     <!-- panel start -->
+  <div data-role="panel" id="left-panel">
+         <ul>
+             <li class="selected" onClick='loadFunction(this, 1);'>
+              <a href="#"><img src="css/images/glyphicons_020_home.png" alt="Hem" class="ui-li-icon ui-li-thumb">Home</a>
+            </li>
+             <li onClick='loadFunction(this, 2);'>
+              <a href="#" ><img src="css/images/glyphicons_138_picture.png" alt="My album" class="ui-li-icon ui-li-thumb">My album</a>
+            </li>
+            <li onClick='loadFunction(this, 3);'>
+              <a href="../about/accessibility.html"><img src="css/images/glyphicons_136_cogwheel.png" alt="Settings" class="ui-li-icon ui-li-thumb">Settings</a>
+            </li>
+            <li onClick='loadFunction(this, 4);'>
+              <a href="#">
+                <img src="css/images/glyphicons_244_conversation.png" alt="Feedback" class="ui-li-icon ui-li-thumb">Feedback</a>
+            </li>
+            <li onClick='loadFunction(this, 5);'>
+              <a href="#"><img src="css/images/glyphicons_063_power.png" alt="Logga in" class="ui-li-icon ui-li-thumb">Logout</a>
+            </li>
+            <li style="border-bottom:none;">
+            </li>
+        </ul>
+    </div><!-- /panel -->
+
+
+
+
+
     <div data-role="header" data-position="fixed" data-id="persistent" data-tap-toggle="false">
+              <a data-iconpos="notext" href="#left-panel" data-role="button" data-icon="grid"></a>
         <h1>Ljudbildspel</h1>
     </div><!-- /header -->
     <div data-role="content" >  
