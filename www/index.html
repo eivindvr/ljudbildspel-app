@@ -46,21 +46,21 @@
     <!-- panel start -->
     <div data-role="panel" id="left-panel">
          <ul>
-            <li class="selected" onClick='loadFunction(this, 1);'>
-              <a href="#"><img src="css/images/glyphicons_020_home.png" alt="Hem" class="ui-li-icon ui-li-thumb">Home</a>
-            </li>
-            <li onClick='loadFunction(this, 2);'>
-              <a href="#" ><img src="css/images/glyphicons_138_picture.png" alt="My album" class="ui-li-icon ui-li-thumb">My album</a>
+            <li>
+              <a href="#" onClick="aboutFunction(one)"><img src="img/glyphicons_414_vimeo.png" alt="Home" class="ui-li-icon ui-li-thumb">Home</a>
              </li>
-            <li onClick='loadFunction(this, 3);'>
-              <a href="../about/accessibility.html"><img src="css/images/glyphicons_136_cogwheel.png" alt="Settings" class="ui-li-icon ui-li-thumb">Settings</a>
+            <li>
+              <a href="#" onClick="aboutFunction(two)" data-transition="none"><img src="img/glyphicons_414_vimeo.png" alt="About" class="ui-li-icon ui-li-thumb">About</a>
+             </li>
+            <li>
+              <a href="https://vimeo.com/groups/ljudbildspel" target="_blank"><img src="img/glyphicons_414_vimeo.png" alt="Vimeo" class="ui-li-icon ui-li-thumb">Vimeo</a>
+             </li>
+            <li>
+              <a href="https://www.facebook.com/Ljudbildspel"><img src="img/glyphicons_410_facebook.png" alt="facebook" class="ui-li-icon ui-li-thumb">Facebook</a>
             </li>
-            <li onClick='loadFunction(this, 4);'>
-            <a href="#">
-                <img src="css/images/glyphicons_244_conversation.png" alt="Feedback" class="ui-li-icon ui-li-thumb">Feedback</a>
-            </li>
-            <li onClick='loadFunction(this, 5);'>
-            <a href="#"><img src="css/images/glyphicons_063_power.png" alt="Logga in" class="ui-li-icon ui-li-thumb">Logout</a>
+            <li>
+            <a href="https://twitter.com/ljudbildspel">
+                <img src="img/glyphicons_411_twitter.png" alt="Twitter" class="ui-li-icon ui-li-thumb">Twitter</a>
             </li>
             <li style="border-bottom:none;">
             </li>
@@ -75,6 +75,7 @@
     <div data-role="content" >  
         <div id="spinner"></div>    
             <div id="pageContent" class="scrollable">
+                <div id="about"></div>
                 <ul data-role="listview" data-inset="false" id="theList"><!-- list view goes here --></ul>
                     <div class="spinner"></div>
                         <p><a id="load" href="#" data-role="button">Load more</a></p> 

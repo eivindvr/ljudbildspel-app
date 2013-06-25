@@ -16,6 +16,7 @@
  * specific language governing permissions and limitations
  * under the License.
  */
+var count = 1;
 var app = {
     // Application Constructor
     initialize: function() {
@@ -88,14 +89,15 @@ $( document ).on( "pageinit", function( event ) {
     $("#pageContent").css( "height", contentHeight);
     $("#pageContent2").css( "height", contentHeight);
 
-    // pagination
-    var count = 1;
+  
     $('#load').click(function(){
         count++;
         $(".spinner").css('display', 'block');
         if(count == 3) $(this).addClass("ui-disabled");
         paginate = count;
         myfunction(paginate);
+                //alert(count);
+
     })
 
 });
@@ -104,6 +106,8 @@ $( document ).delegate("#one", "pageinit", function() {
         
     myfunction(1);
     //first api call
+
+    $('#load').hide();
 
     $.mobile.defaultPageTransition = 'slide';
     //default transition
@@ -150,6 +154,8 @@ function myfunction(page){
                     $("#theList").listview("refresh");
 
                 }
+                    $('#load').show();
+
             }
         });
 
@@ -198,4 +204,21 @@ function divFunction(id){
                     $("#two").trigger("pagecreate");//this will render the button layout correctly
             }
         });
+}
+
+function aboutFunction(shitz){
+//populate page #one with content from panel = home/about 
+    if(shitz == two){
+        $("#theList").html('');
+        $('#load').hide();
+        $("#about").html('<h2>About us</h2>');
+        $( "#left-panel" ).panel( "close" );
+    }
+    else{
+        count = 1;
+        $("#about").html('');
+        myfunction(1);
+        $( "#left-panel" ).panel( "close" );
+        $('#load').show().removeClass('ui-disabled');
+    }
 }
