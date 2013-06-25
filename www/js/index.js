@@ -214,6 +214,9 @@ function aboutFunction(shitz){
         $("#about").html('<h2>About us</h2>');
         $( "#left-panel" ).panel( "close" );
     }
+     else if(shitz == one && $('#theList li').length > 1) {
+        $( "#left-panel" ).panel( "close" );
+    }
     else{
         count = 1;
         $("#about").html('');
