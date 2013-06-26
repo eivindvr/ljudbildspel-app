@@ -16,7 +16,7 @@
  * specific language governing permissions and limitations
  * under the License.
  */
-var count = 1;
+var count = 1;//pagination count
 var app = {
     // Application Constructor
     initialize: function() {
@@ -69,9 +69,10 @@ $('#theList').html('');
 
 function onResume() {
 // Handle the resume event
+    count = 1; //reset counter
+    $('#load').hide();
     myfunction(1);            
     $('#load').removeClass('ui-disabled');
-    count = 1; //reset counter
 }
 
 function onOffline() {
@@ -79,6 +80,16 @@ function onOffline() {
     alert('No connection');
 }
 
+$(document).ready(function() {
+  // Handler for .ready() called.
+  $('#load').click(function(){
+        count++;
+        $(".spinner").css('display', 'block');
+        if(count == 3) $(this).addClass("ui-disabled");
+        paginate = count;
+        myfunction(paginate);
+    });
+});
 
 //jquerymobile things
 $( document ).on( "pageinit", function( event ) {
@@ -89,25 +100,14 @@ $( document ).on( "pageinit", function( event ) {
     $("#pageContent").css( "height", contentHeight);
     $("#pageContent2").css( "height", contentHeight);
 
-  
-    $('#load').click(function(){
-        count++;
-        $(".spinner").css('display', 'block');
-        if(count == 3) $(this).addClass("ui-disabled");
-        paginate = count;
-        myfunction(paginate);
-                //alert(count);
-
-    })
 
 });
 
 $( document ).delegate("#one", "pageinit", function() {
-        
+
+    $('#load').hide();    
     myfunction(1);
     //first api call
-
-    $('#load').hide();
 
     $.mobile.defaultPageTransition = 'slide';
     //default transition
@@ -209,8 +209,9 @@ function divFunction(id){
 function aboutFunction(shitz){
 //populate page #one with content from panel = home/about 
     if(shitz == two){
-        $("#theList").html('');
         $('#load').hide();
+        $('#pageContent').css( "background-image", "none" );
+        $("#theList").html('');
         $("#about").html('<h2>About us</h2>');
         $( "#left-panel" ).panel( "close" );
     }
@@ -220,8 +221,16 @@ function aboutFunction(shitz){
     else{
         count = 1;
         $("#about").html('');
+
+        $('#pageContent').css({
+            'background':'url(img/ajax-loader-small.gif)',
+            'background-repeat': 'no-repeat',
+            'background-position':'50% 15%'
+        });
+
+        $('#load').hide();
         myfunction(1);
         $( "#left-panel" ).panel( "close" );
-        $('#load').show().removeClass('ui-disabled');
+        $('#load').removeClass('ui-disabled');
     }
 }
