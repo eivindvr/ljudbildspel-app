@@ -136,8 +136,6 @@ function myfunction(page){
             url: "http://vimeo.com/api/v2/group/ljudbildspel/videos.json?page=" + page,
             success: function(data) {
 
-            $('#spinner').remove();
-
             for (var i = 0; i < 20; i++) {
 
                 if(data[i].mobile_url && data[i].embed_privacy == "anywhere"){  

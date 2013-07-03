@@ -110,6 +110,8 @@ strong{
     #spinner, .spinner{
         background: url('../img/ajax-loader-small.gif') no-repeat;
         background-position:center; 
+            display: none;
+
     }
 
     #pageContent, #pageContent2{
@@ -121,7 +123,6 @@ strong{
 .spinner{
     height:40px;
     width:100%;
-    display: none;
 }
 
 #pageContent, #pageContent2{
