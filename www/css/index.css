@@ -147,6 +147,7 @@ strong{
 
   #left-panel{
     background: #1B1B1B;
+    position: fixed;
   }
 
   ul{
