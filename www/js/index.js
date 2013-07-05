@@ -194,7 +194,7 @@ function divFunction(id){
                         var iframeSRC = "http://player.vimeo.com/video/"+ id +"?api=1&player_id=player";  
                         var emph = "<iframe id='player' src='" + iframeSRC +  "' width='100%'" + iHeight + "seamless></iframe>";
                         var desc = "<p><small>" + str +"</small><p></div>";
-                        var vbutton = "<a id='vimeoButton' data-role='button' href='" + newVurl + "'>View on Vimeo</a><br/><br/>";
+                        var vbutton = "<a id='vimeoButton' data-role='button' onclick=\"urlFunc('" + newVurl +"')\">View on Vimeo</a><br/><br/>";
 
                         return emph + avatar + theTitle + username + desc + vbutton;
                     });
@@ -203,6 +203,14 @@ function divFunction(id){
             }
         });
 }
+
+
+function urlFunc(openUrl)
+{
+    //this is the inappbrowser function
+    var ref = window.open(openUrl, '_blank', 'location=yes');
+}
+
 
 function aboutFunction(shitz){
 //populate page #one with content from panel = home/about 
