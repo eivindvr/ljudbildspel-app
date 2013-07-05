@@ -63,16 +63,19 @@ function init() {
 }
 
 function onPause() {
-// Handle the pause event
+// On app paus clear the content
 $('#theList').html('');
 }
 
 function onResume() {
-// Handle the resume event
+// On app resume populate startpage
     count = 1; //reset counter
     $('#load').hide();
-    myfunction(1);            
-    $('#load').removeClass('ui-disabled');
+    if( $('#load').length == 0){
+    //check if you open the about or start page
+        myfunction(1);            
+        $('#load').removeClass('ui-disabled');
+    }
 }
 
 function onOffline() {
