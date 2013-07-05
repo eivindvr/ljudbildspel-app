@@ -214,11 +214,13 @@ function urlFunc(openUrl)
 
 function aboutFunction(shitz){
 //populate page #one with content from panel = home/about 
+    var aboutText = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam tellus urna, porttitor a lorem suscipit, ullamcorper cursus elit. Nullam iaculis leo id pretium molestie. Etiam malesuada pulvinar diam, nec auctor lacus tincidunt sit amet. Vestibulum enim lacus, lacinia id cursus eu, auctor nec lacus. Nam fringilla adipiscing quam, vel vestibulum nisl imperdiet ut. Nunc in lectus fringilla, convallis tellus a, convallis nunc. Maecenas viverra nibh ac pharetra auctor. Nam vel magna et urna tincidunt egestas sed a magna. Maecenas malesuada libero a augue pulvinar egestas. Vestibulum ultricies metus ut sollicitudin scelerisque. Quisque vitae vulputate lorem. Nam vitae nulla id mi pharetra fringilla non consectetur quam. Ut blandit massa ac scelerisque porta. Praesent gravida volutpat nulla sit amet volutpat. Vestibulum ipsum arcu, feugiat et est ut, facilisis mollis dolor. Quisque rhoncus arcu quis aliquam iaculis.";
+    
     if(shitz == two){
         $('#load').hide();
         $('#pageContent').css( "background-image", "none" );
         $("#theList").html('');
-        $("#about").html('<h2>About us</h2>');
+        $("#about").css('padding','10px 20px 20px 20px').html('<small>' + aboutText + '</small>');
         $( "#left-panel" ).panel( "close" );
     }
      else if(shitz == one && $('#theList li').length > 1) {
@@ -226,7 +228,7 @@ function aboutFunction(shitz){
     }
     else{
         count = 1;
-        $("#about").html('');
+        $("#about").html('').css('padding','0');
 
         $('#pageContent').css({
             'background':'url(img/ajax-loader-small.gif)',
