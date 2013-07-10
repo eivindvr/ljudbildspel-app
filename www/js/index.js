@@ -71,7 +71,7 @@ function onResume() {
 // On app resume populate startpage
     count = 1; //reset counter
     $('#load').hide();
-    if( $('#load').length == 0){
+    if( $('#load').length <= 1){
     //check if you open the about or start page
         myfunction(1);            
         $('#load').removeClass('ui-disabled');
