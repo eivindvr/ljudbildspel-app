@@ -69,10 +69,10 @@ $('#theList').html('');
 
 function onResume() {
 // On app resume populate startpage
-    count = 1; //reset counter
     $('#load').hide();
-    if( $('#load').length <= 1){
+    if( $('#about').length <= 1){
     //check if you open the about or start page
+        count = 1; //reset counter
         myfunction(1);            
         $('#load').removeClass('ui-disabled');
     }
@@ -226,19 +226,17 @@ function aboutFunction(shitz){
         $("#about").css('padding','10px 20px 20px 20px').html('<small>' + aboutText + '</small>');
         $( "#left-panel" ).panel( "close" );
     }
-     else if(shitz == one && $('#theList li').length > 1) {
+     else if(shitz == one && $('#theList').length > 1) {
         $( "#left-panel" ).panel( "close" );
     }
     else{
         count = 1;
         $("#about").html('').css('padding','0');
-
         $('#pageContent').css({
             'background':'url(img/ajax-loader-small.gif)',
             'background-repeat': 'no-repeat',
             'background-position':'50% 15%'
         });
-
         $('#load').hide();
         myfunction(1);
         $( "#left-panel" ).panel( "close" );
