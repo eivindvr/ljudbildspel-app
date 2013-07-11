@@ -70,7 +70,7 @@ $('#theList').html('');
 function onResume() {
 // On app resume populate startpage
     $('#load').hide();
-    if( $('#about').length <= 1){
+    if( $('#about').height() == 0){
     //check if you open the about or start page
         count = 1; //reset counter
         myfunction(1);            
